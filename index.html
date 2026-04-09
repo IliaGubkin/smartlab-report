@@ -59,7 +59,7 @@
         .cards-container {
             display: flex;
             flex-direction: column;
-            gap: 4.5px;
+            gap: 5px;
         }
 
         .header-card {
@@ -622,12 +622,42 @@
                 padding: 20px;
             }
 
+            .cards-container {
+                gap: 0;
+            }
+
+            .page-break-spacer-top {
+                height: 2.5px;
+                margin: 0;
+                padding: 0;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            .page-break-spacer-bottom {
+                height: 2.5px;
+                margin: 0;
+                padding: 0;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
             .card,
             .card-light,
             .banner,
             .col-dark,
-            .col-light {
+            .col-light,
+            .header-card {
                 break-inside: avoid;
+                page-break-inside: avoid;
+                break-before: auto;
+                break-after: auto;
+            }
+
+            /* Запрещаем разрыв внутри обертки карточки */
+            .card-wrapper {
+                break-inside: avoid;
+                page-break-inside: avoid;
             }
         }
 
@@ -674,188 +704,220 @@
 
         <div class="cards-container">
             <!-- ВВОДНЫЕ ДАННЫЕ -->
-            <div class="card">
-                <div class="flex-between">
-                    <div class="section-title">Вводные данные</div>
-                    <div class="badge-pill">
-                        <span>Файлов получено:</span>
-                        <svg width="1" height="8" viewBox="0 0 1 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <line x1="0.5" y1="0" x2="0.5" y2="8" stroke="#6C768A" stroke-width="0.5" />
-                        </svg>
-                        <div class="badge-circle">
-                            <span class="badge-number">{{FILES_COUNT}}</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="divider"></div>
-                <div class="info-grid">
-                    <div class="info-row">
-                        <div class="info-label">Тип анализа</div>
-                        <div class="info-value">{{ANALYSIS_FULL}}</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Пациент:</div>
-                        <div class="info-value">{{PATIENT}}</div>
-                    </div>
-                    <div class="info-row" style="align-items: start;">
-                        <div class="info-label">Вопрос пациента (комментарий):</div>
-                        <div class="info-value comment-box"><span>{{COMMENT}}</span>
-                            <div class="icon-container">
-                                <svg width="12" height="10" viewBox="0 0 12 10" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M11.3333 8.66666H4.66663M11.3333 5.99999H0.666626M11.3333 3.33332H4.66663M11.3333 0.666656H0.666626"
-                                        stroke="#5FBBD6"
-                                        style="stroke:#5FBBD6;stroke:color(display-p3 0.3725 0.7333 0.8392);stroke-opacity:1;"
-                                        stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="flex-between">
+                        <div class="section-title">Вводные данные</div>
+                        <div class="badge-pill">
+                            <span>Файлов получено:</span>
+                            <svg width="1" height="8" viewBox="0 0 1 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="0.5" y1="0" x2="0.5" y2="8" stroke="#6C768A" stroke-width="0.5" />
+                            </svg>
+                            <div class="badge-circle">
+                                <span class="badge-number">{{FILES_COUNT}}</span>
                             </div>
                         </div>
                     </div>
-                    <div class="info-row" style="align-items: start;">
-                        <div class="info-label">Симптомы/хронические заболевания:</div>
-                        <div class="info-value comment-box"><span>{{SYMPTOMS}}</span>
-                            <div class="icon-container">
-                                <svg width="12" height="10" viewBox="0 0 12 10" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M11.3333 8.66666H4.66663M11.3333 5.99999H0.666626M11.3333 3.33332H4.66663M11.3333 0.666656H0.666626"
-                                        stroke="#5FBBD6"
-                                        style="stroke:#5FBBD6;stroke:color(display-p3 0.3725 0.7333 0.8392);stroke-opacity:1;"
-                                        stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
+                    <div class="divider"></div>
+                    <div class="info-grid">
+                        <div class="info-row">
+                            <div class="info-label">Тип анализа</div>
+                            <div class="info-value">{{ANALYSIS_FULL}}</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Пациент:</div>
+                            <div class="info-value">{{PATIENT}}</div>
+                        </div>
+                        <div class="info-row" style="align-items: start;">
+                            <div class="info-label">Вопрос пациента (комментарий):</div>
+                            <div class="info-value comment-box"><span>{{COMMENT}}</span>
+                                <div class="icon-container">
+                                    <svg width="12" height="10" viewBox="0 0 12 10" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M11.3333 8.66666H4.66663M11.3333 5.99999H0.666626M11.3333 3.33332H4.66663M11.3333 0.666656H0.666626"
+                                            stroke="#5FBBD6"
+                                            style="stroke:#5FBBD6;stroke:color(display-p3 0.3725 0.7333 0.8392);stroke-opacity:1;"
+                                            stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-row" style="align-items: start;">
+                            <div class="info-label">Симптомы/хронические заболевания:</div>
+                            <div class="info-value comment-box"><span>{{SYMPTOMS}}</span>
+                                <div class="icon-container">
+                                    <svg width="12" height="10" viewBox="0 0 12 10" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M11.3333 8.66666H4.66663M11.3333 5.99999H0.666626M11.3333 3.33332H4.66663M11.3333 0.666656H0.666626"
+                                            stroke="#5FBBD6"
+                                            style="stroke:#5FBBD6;stroke:color(display-p3 0.3725 0.7333 0.8392);stroke-opacity:1;"
+                                            stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="page-break-spacer-bottom"></div>
             </div>
-
             <!-- БАННЕР РЕЗУЛЬТАТА -->
-            <div class="banner">
-                <div class="banner-top">
-                    <div class="banner-icon-container">
-                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M7.50006 4.83737V7.83737M3.99886 1.45322L1.45319 3.99889L1.45087 4.00106C1.19299 4.25895 1.06374 4.3882 0.971252 4.53912C0.889009 4.67333 0.828251 4.81982 0.791506 4.97287C0.750061 5.1455 0.750061 5.32888 0.750061 5.69577V9.30442C0.750061 9.6713 0.750061 9.85474 0.791506 10.0274C0.828251 10.1804 0.889009 10.3267 0.971252 10.4609C1.06399 10.6122 1.19393 10.7422 1.45319 11.0014L3.99886 13.5471C4.25829 13.8065 4.38772 13.936 4.53909 14.0287C4.6733 14.111 4.81942 14.172 4.97247 14.2087C5.14484 14.2501 5.32793 14.2501 5.6937 14.2501H9.30569C9.67146 14.2501 9.85533 14.2501 10.0277 14.2087C10.1808 14.172 10.327 14.111 10.4612 14.0287C10.6126 13.936 10.7423 13.8065 11.0018 13.5471L13.5474 11.0014C13.8069 10.742 13.9363 10.6123 14.0291 10.4609C14.1113 10.3267 14.1716 10.1804 14.2083 10.0274C14.2498 9.85473 14.2501 9.67131 14.2501 9.30442V5.69577C14.2501 5.32888 14.2498 5.1455 14.2083 4.97287C14.1716 4.81982 14.1113 4.67333 14.0291 4.53913C13.9363 4.38776 13.8069 4.2583 13.5474 3.99889L11.0018 1.45322C10.7425 1.19395 10.6126 1.06402 10.4612 0.971283C10.327 0.88904 10.1808 0.828282 10.0277 0.791537C9.85507 0.750092 9.67091 0.750092 9.30402 0.750092H5.69537C5.32849 0.750092 5.1451 0.750092 4.97247 0.791537C4.81942 0.828282 4.6733 0.88904 4.53909 0.971283C4.38909 1.0632 4.26085 1.19144 4.00611 1.44619L3.99886 1.45322ZM7.53741 10.0874V10.1624L7.46271 10.1625V10.0874H7.53741Z"
-                                stroke="white" style="stroke:white;stroke-opacity:1;" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
+            <div class="card-wrapper">
+                <div class="page-break-spacer-top"></div>
+                <div class="banner">
+                    <div class="banner-top">
+                        <div class="banner-icon-container">
+                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M7.50006 4.83737V7.83737M3.99886 1.45322L1.45319 3.99889L1.45087 4.00106C1.19299 4.25895 1.06374 4.3882 0.971252 4.53912C0.889009 4.67333 0.828251 4.81982 0.791506 4.97287C0.750061 5.1455 0.750061 5.32888 0.750061 5.69577V9.30442C0.750061 9.6713 0.750061 9.85474 0.791506 10.0274C0.828251 10.1804 0.889009 10.3267 0.971252 10.4609C1.06399 10.6122 1.19393 10.7422 1.45319 11.0014L3.99886 13.5471C4.25829 13.8065 4.38772 13.936 4.53909 14.0287C4.6733 14.111 4.81942 14.172 4.97247 14.2087C5.14484 14.2501 5.32793 14.2501 5.6937 14.2501H9.30569C9.67146 14.2501 9.85533 14.2501 10.0277 14.2087C10.1808 14.172 10.327 14.111 10.4612 14.0287C10.6126 13.936 10.7423 13.8065 11.0018 13.5471L13.5474 11.0014C13.8069 10.742 13.9363 10.6123 14.0291 10.4609C14.1113 10.3267 14.1716 10.1804 14.2083 10.0274C14.2498 9.85473 14.2501 9.67131 14.2501 9.30442V5.69577C14.2501 5.32888 14.2498 5.1455 14.2083 4.97287C14.1716 4.81982 14.1113 4.67333 14.0291 4.53913C13.9363 4.38776 13.8069 4.2583 13.5474 3.99889L11.0018 1.45322C10.7425 1.19395 10.6126 1.06402 10.4612 0.971283C10.327 0.88904 10.1808 0.828282 10.0277 0.791537C9.85507 0.750092 9.67091 0.750092 9.30402 0.750092H5.69537C5.32849 0.750092 5.1451 0.750092 4.97247 0.791537C4.81942 0.828282 4.6733 0.88904 4.53909 0.971283C4.38909 1.0632 4.26085 1.19144 4.00611 1.44619L3.99886 1.45322ZM7.53741 10.0874V10.1624L7.46271 10.1625V10.0874H7.53741Z"
+                                    stroke="white" style="stroke:white;stroke-opacity:1;" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <span style="font-weight:500; font-size:10px; letter-spacing: -0.4px;">Результат анализа</span>
                     </div>
-                    <span style="font-weight:500; font-size:10px; letter-spacing: -0.4px;">Результат анализа</span>
+                    <div class="banner-title">{{URGENCY_TITLE}}</div>
+                    <div class="banner-desc">{{URGENCY_DESC}}</div>
                 </div>
-                <div class="banner-title">{{URGENCY_TITLE}}</div>
-                <div class="banner-desc">{{URGENCY_DESC}}</div>
+                <div class="page-break-spacer-bottom"></div>
             </div>
-
             <!-- 1. Резюме -->
-            <div class="card">
-                <div class="section-header">
-                    <span class="section-title"><span class="number">1.</span> Резюме <span class="section-sub"> (итог
-                            по {{ANALYSIS_SHORT}} и ситуации)</span></span>
+            <div class="card-wrapper">
+                <div class="page-break-spacer-top"></div>
+                <div class="card">
+                    <div class="section-header">
+                        <span class="section-title"><span class="number">1.</span> Резюме <span class="section-sub">
+                                (итог
+                                по {{ANALYSIS_SHORT}} и ситуации)</span></span>
+                    </div>
+                    <div class="divider"></div>
+                    <div>{{RESUME_ITEMS}}</div>
                 </div>
-                <div class="divider"></div>
-                <div>{{RESUME_ITEMS}}</div>
+                <div class="page-break-spacer-bottom"></div>
             </div>
-
             <!-- 2. План действий -->
-            <div class="card">
-                <div class="section-title"><span class="number">2.</span> План действий</div>
-                <div class="divider"></div>
-                <div>{{ACTION_ITEMS}}</div>
+            <div class="card-wrapper">
+                <div class="page-break-spacer-top"></div>
+                <div class="card">
+                    <div class="section-title"><span class="number">2.</span> План действий</div>
+                    <div class="divider"></div>
+                    <div>{{ACTION_ITEMS}}</div>
+                </div>
+                <div class="page-break-spacer-bottom"></div>
             </div>
-
             <!-- 3. Вероятные диагнозы -->
-            <div class="card">
-                <div class="section-title"><span class="number">3.</span> Вероятные диагнозы</div>
-                <div class="divider"></div>
-                <div>{{DIAGNOSES}}</div>
+            <div class="card-wrapper">
+                <div class="page-break-spacer-top"></div>
+                <div class="card">
+                    <div class="section-title"><span class="number">3.</span> Вероятные диагнозы</div>
+                    <div class="divider"></div>
+                    <div>{{DIAGNOSES}}</div>
+                </div>
+                <div class="page-break-spacer-bottom"></div>
             </div>
-
             <!-- 4. Показатели -->
-            <div class="card">
-                <div class="flex-between" style="align-items: center;">
-                    <div class="section-title"><span class="number" style="padding-right: 7px;">4.</span> Показатели
-                    </div>
-                    <div style="display: flex; gap: 5px;">
-                        <div class="badge-pill"
-                            style="background: rgba(242,184,32,0.05); box-shadow: 0 0 0 0.5px rgba(144,102,1,0.25);">
-                            <span style="color:#906601;">Вне нормы</span>
-                            <svg width="1" height="8" viewBox="0 0 1 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <line x1="0.5" y1="0" x2="0.5" y2="8" stroke="rgba(144, 102, 1, 0.25)"
-                                    stroke-width="0.5" />
-                            </svg>
-                            <div class="badge-circle" style="background-color: rgba(242, 184, 32, 0.55);">
-                                <span style="color:#906601;">{{ABNORMAL_COUNT}}</span>
-                            </div>
+            <div class="card-wrapper">
+                <div class="page-break-spacer-top"></div>
+                <div class="card">
+                    <div class="flex-between" style="align-items: center;">
+                        <div class="section-title"><span class="number" style="padding-right: 7px;">4.</span> Показатели
                         </div>
-                        <div class="badge-pill"
-                            style="background: rgba(106,207,92,0.05); box-shadow: 0 0 0 0.5px rgba(70,138,60,0.25);">
-                            <span style="color:#468A3C;">В норме</span>
+                        <div style="display: flex; gap: 5px;">
+                            <div class="badge-pill"
+                                style="background: rgba(242,184,32,0.05); box-shadow: 0 0 0 0.5px rgba(144,102,1,0.25);">
+                                <span style="color:#906601;">Вне нормы</span>
+                                <svg width="1" height="8" viewBox="0 0 1 8" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="0.5" y1="0" x2="0.5" y2="8" stroke="rgba(144, 102, 1, 0.25)"
+                                        stroke-width="0.5" />
+                                </svg>
+                                <div class="badge-circle" style="background-color: rgba(242, 184, 32, 0.55);">
+                                    <span style="color:#906601;">{{ABNORMAL_COUNT}}</span>
+                                </div>
+                            </div>
+                            <div class="badge-pill"
+                                style="background: rgba(106,207,92,0.05); box-shadow: 0 0 0 0.5px rgba(70,138,60,0.25);">
+                                <span style="color:#468A3C;">В норме</span>
 
-                            <svg width="1" height="8" viewBox="0 0 1 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <line x1="0.5" y1="0" x2="0.5" y2="8" stroke="rgba(70, 138, 60, 0.25)"
-                                    stroke-width="0.5" />
-                            </svg>
-                            <div class="badge-circle" style="background-color: rgba(106, 207, 92, 0.55);">
-                                <span style="color: rgba(70, 138, 60, 1);">{{NORMAL_COUNT}}</span>
+                                <svg width="1" height="8" viewBox="0 0 1 8" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="0.5" y1="0" x2="0.5" y2="8" stroke="rgba(70, 138, 60, 0.25)"
+                                        stroke-width="0.5" />
+                                </svg>
+                                <div class="badge-circle" style="background-color: rgba(106, 207, 92, 0.55);">
+                                    <span style="color: rgba(70, 138, 60, 1);">{{NORMAL_COUNT}}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="divider"></div>
+                    <div class="mb-2">{{ABNORMAL_INDICATORS}}</div>
+                    <div>{{NORMAL_INDICATORS}}</div>
                 </div>
-                <div class="divider"></div>
-                <div class="mb-2">{{ABNORMAL_INDICATORS}}</div>
-                <div>{{NORMAL_INDICATORS}}</div>
+                <div class="page-break-spacer-bottom"></div>
             </div>
-
             <!-- 5. Что отслеживать -->
-            <div class="card">
-                <div class="section-title" style="margin-bottom: 40px;"><span class="number">5.</span> Что отслеживать
-                </div>
-                <div class="two-columns mb-2">
-                    <div class="col-dark">
-                        <div class="col-title">Опасные признаки</div>
-                        <span style="font-size: 10px; font-weight:300;">{{WATCH_DANGER}}</span>
+            <div class="card-wrapper">
+                <div class="page-break-spacer-top"></div>
+                <div class="card">
+                    <div class="section-title" style="margin-bottom: 40px;"><span class="number">5.</span> Что
+                        отслеживать
                     </div>
-                    <div class="col-light">
-                        <div class="col-title">Менее опасные признаки</div>
-                        <span style="font-size: 10px; font-weight:300;">{{WATCH_SAFE}}</span>
+                    <div class="two-columns mb-2">
+                        <div class="col-dark">
+                            <div class="col-title">Опасные признаки</div>
+                            <span style="font-size: 10px; font-weight:300;">{{WATCH_DANGER}}</span>
+                        </div>
+                        <div class="col-light">
+                            <div class="col-title">Менее опасные признаки</div>
+                            <span style="font-size: 10px; font-weight:300;">{{WATCH_SAFE}}</span>
+                        </div>
+                    </div>
+                    <div class="col-watch-note">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.77783 5.01649V8.1276M4.14696 1.507L1.507 4.14696L1.5046 4.14921C1.23716 4.41665 1.10313 4.55068 1.00722 4.7072C0.921927 4.84638 0.858918 4.99829 0.820812 5.15701C0.777832 5.33603 0.777832 5.52621 0.777832 5.90668V9.64898C0.777832 10.0295 0.777832 10.2197 0.820812 10.3987C0.858918 10.5574 0.921927 10.7091 1.00722 10.8483C1.10338 11.0052 1.23814 11.14 1.507 11.4089L4.14696 14.0488C4.41599 14.3178 4.55022 14.4521 4.7072 14.5483C4.84638 14.6336 4.99791 14.6968 5.15663 14.7349C5.33538 14.7778 5.52525 14.7778 5.90457 14.7778H9.65034C10.0297 14.7778 10.2203 14.7778 10.3991 14.7349C10.5578 14.6968 10.7095 14.6336 10.8487 14.5483C11.0057 14.4521 11.1402 14.3178 11.4092 14.0488L14.0492 11.4089C14.3182 11.1398 14.4525 11.0053 14.5487 10.8483C14.6339 10.7091 14.6964 10.5574 14.7345 10.3987C14.7775 10.2197 14.7778 10.0295 14.7778 9.64899V5.90668C14.7778 5.52621 14.7775 5.33603 14.7345 5.15701C14.6964 4.99829 14.6339 4.84638 14.5487 4.7072C14.4525 4.55022 14.3182 4.41597 14.0492 4.14695L11.4092 1.507C11.1404 1.23813 11.0056 1.10338 10.8487 1.00722C10.7095 0.921927 10.5578 0.858918 10.3991 0.820812C10.2201 0.777832 10.0291 0.777832 9.64861 0.777832H5.9063C5.52583 0.777832 5.33565 0.777832 5.15663 0.820812C4.99791 0.858918 4.84638 0.921927 4.7072 1.00722C4.55164 1.10254 4.41865 1.23553 4.15448 1.49971L4.14696 1.507ZM7.81657 10.4609V10.5387L7.7391 10.5389V10.4609H7.81657Z"
+                                stroke="#34425D"
+                                style="stroke:#34425D;stroke:color(display-p3 0.2039 0.2588 0.3647);stroke-opacity:1;"
+                                stroke-width="1.55556" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        {{WATCH_NOTE}}
                     </div>
                 </div>
-                <div class="col-watch-note">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M7.77783 5.01649V8.1276M4.14696 1.507L1.507 4.14696L1.5046 4.14921C1.23716 4.41665 1.10313 4.55068 1.00722 4.7072C0.921927 4.84638 0.858918 4.99829 0.820812 5.15701C0.777832 5.33603 0.777832 5.52621 0.777832 5.90668V9.64898C0.777832 10.0295 0.777832 10.2197 0.820812 10.3987C0.858918 10.5574 0.921927 10.7091 1.00722 10.8483C1.10338 11.0052 1.23814 11.14 1.507 11.4089L4.14696 14.0488C4.41599 14.3178 4.55022 14.4521 4.7072 14.5483C4.84638 14.6336 4.99791 14.6968 5.15663 14.7349C5.33538 14.7778 5.52525 14.7778 5.90457 14.7778H9.65034C10.0297 14.7778 10.2203 14.7778 10.3991 14.7349C10.5578 14.6968 10.7095 14.6336 10.8487 14.5483C11.0057 14.4521 11.1402 14.3178 11.4092 14.0488L14.0492 11.4089C14.3182 11.1398 14.4525 11.0053 14.5487 10.8483C14.6339 10.7091 14.6964 10.5574 14.7345 10.3987C14.7775 10.2197 14.7778 10.0295 14.7778 9.64899V5.90668C14.7778 5.52621 14.7775 5.33603 14.7345 5.15701C14.6964 4.99829 14.6339 4.84638 14.5487 4.7072C14.4525 4.55022 14.3182 4.41597 14.0492 4.14695L11.4092 1.507C11.1404 1.23813 11.0056 1.10338 10.8487 1.00722C10.7095 0.921927 10.5578 0.858918 10.3991 0.820812C10.2201 0.777832 10.0291 0.777832 9.64861 0.777832H5.9063C5.52583 0.777832 5.33565 0.777832 5.15663 0.820812C4.99791 0.858918 4.84638 0.921927 4.7072 1.00722C4.55164 1.10254 4.41865 1.23553 4.15448 1.49971L4.14696 1.507ZM7.81657 10.4609V10.5387L7.7391 10.5389V10.4609H7.81657Z"
-                            stroke="#34425D"
-                            style="stroke:#34425D;stroke:color(display-p3 0.2039 0.2588 0.3647);stroke-opacity:1;"
-                            stroke-width="1.55556" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    {{WATCH_NOTE}}
-                </div>
+                <div class="page-break-spacer-bottom"></div>
             </div>
-
             <!-- 6. Важное примечание -->
-            <div class="card-light">
-                <div class="section-title"><span class="number">6.</span> Важное примечание</div>
-                <div class="divider"></div>
-                <div class="important-note-text">{{IMPORTANT_NOTE}}</div>
-                <div class="important-tip-row">
-                    <svg width="2" height="14" viewBox="0 0 2 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="0.275" y="0" width="1.45" height="14" rx="0.725" fill="#5FBBD6" />
-                    </svg>
-                    <span class="important-tip-text">{{IMPORTANT_TIP}}</span>
+            <div class="card-wrapper">
+                <div class="page-break-spacer-top"></div>
+                <div class="card-light">
+                    <div class="section-title"><span class="number">6.</span> Важное примечание</div>
+                    <div class="divider"></div>
+                    <div class="important-note-text">{{IMPORTANT_NOTE}}</div>
+                    <div class="important-tip-row">
+                        <svg width="2" height="14" viewBox="0 0 2 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0.275" y="0" width="1.45" height="14" rx="0.725" fill="#5FBBD6" />
+                        </svg>
+                        <span class="important-tip-text">{{IMPORTANT_TIP}}</span>
+                    </div>
+                </div>
+                <div class="page-break-spacer-bottom"></div>
+            </div>
+            <!-- ТЕХНИЧЕСКИЙ РАЗДЕЛ -->
+            <div class="card-wrapper">
+                <div class="page-break-spacer-top"></div>
+                <div class="card-light">
+                    <div class="flex-between">
+                        <div class="section-title" style="font-size: 12px; letter-spacing: -0.24px;">Технический раздел
+                        </div>
+                        <div class="badge-pill-tech">Для специалистов</div>
+                    </div>
+                    <div class="divider"></div>
+                    <div>{{TECHNICAL_NOTES}}</div>
                 </div>
             </div>
 
-            <!-- ТЕХНИЧЕСКИЙ РАЗДЕЛ -->
-            <div class="card-light">
-                <div class="flex-between">
-                    <div class="section-title" style="font-size: 12px; letter-spacing: -0.24px;">Технический раздел
-                    </div>
-                    <div class="badge-pill-tech">Для специалистов</div>
-                </div>
-                <div class="divider"></div>
-                <div>{{TECHNICAL_NOTES}}</div>
-            </div>
         </div>
 
         <!-- FOOTER -->
