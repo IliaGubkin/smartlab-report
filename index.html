@@ -605,7 +605,8 @@
         /* печать A4 */
         @page {
             size: A4;
-            margin: 0;
+            margin: 10px 0;
+            background: #f9fcff;
         }
 
         @media print {
@@ -619,7 +620,8 @@
             .report {
                 max-width: 100%;
                 margin: 0;
-                padding: 30px;
+                /* Компенсируем margin @page сверху и снизу*/
+                padding: 20px 30px; 
             }
 
             .cards-container {
