@@ -678,14 +678,14 @@
                 </div>
                 <div class="date-col">
                     <div>Отчет сформирован автоматически</div>
-                    <div>{{DATE}}</div>
+                    <div>14 апреля 2026 г.</div>
                 </div>
             </div>
         </div>
 
         <!-- ЗАГОЛОВОК ОТЧЕТА -->
         <div class="title-report">
-            <span class="accent">Глубокая интерпретация</span> <span class="dark"> {{ANALYSIS_SHORT}}</span>
+            <span class="accent">Глубокая интерпретация</span> <span class="dark"> биохимии крови</span>
         </div>
 
         <div class="cards-container">
@@ -700,7 +700,7 @@
                                 <line x1="0.5" y1="0" x2="0.5" y2="8" stroke="#6C768A" stroke-width="0.5" />
                             </svg>
                             <div class="badge-circle">
-                                <span class="badge-number">{{FILES_COUNT}}</span>
+                                <span class="badge-number">1</span>
                             </div>
                         </div>
                     </div>
@@ -708,15 +708,15 @@
                     <div class="info-grid">
                         <div class="info-row">
                             <div class="info-label">Тип анализа</div>
-                            <div class="info-value">{{ANALYSIS_FULL}}</div>
+                            <div class="info-value">Биохимический анализ крови</div>
                         </div>
                         <div class="info-row">
                             <div class="info-label">Пациент:</div>
-                            <div class="info-value">{{PATIENT}}</div>
+                            <div class="info-value">Мужчина, 42 года</div>
                         </div>
                         <div class="info-row" style="align-items: start;">
                             <div class="info-label">Вопрос пациента (комментарий):</div>
-                            <div class="info-value comment-box"><span>{{COMMENT}}</span>
+                            <div class="info-value comment-box"><span>нет</span>
                                 <div class="icon-container">
                                     <svg width="12" height="10" viewBox="0 0 12 10" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -731,7 +731,7 @@
                         </div>
                         <div class="info-row" style="align-items: start;">
                             <div class="info-label">Симптомы/хронические заболевания:</div>
-                            <div class="info-value comment-box"><span>{{SYMPTOMS}}</span>
+                            <div class="info-value comment-box"><span>нет</span>
                                 <div class="icon-container">
                                     <svg width="12" height="10" viewBox="0 0 12 10" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -764,8 +764,8 @@
                         </div>
                         <span style="font-weight:500; font-size:10px; letter-spacing: -0.4px;">Результат анализа</span>
                     </div>
-                    <div class="banner-title">{{URGENCY_TITLE}}</div>
-                    <div class="banner-desc">{{URGENCY_DESC}}</div>
+                    <div class="banner-title">Есть отклонения: повышен общий билирубин</div>
+                    <div class="banner-desc">Единственное значимое отклонение — умеренное повышение общего билирубина при нормальных печёночных ферментах. Чаще всего это бывает доброкачественно (например, синдром Жильбера), но требует контрольного анализа и исключения редких причин.</div>
                 </div>
                 <div class="page-break-spacer-bottom"></div>
             </div>
@@ -776,10 +776,34 @@
                     <div class="section-header">
                         <span class="section-title"><span class="number">1.</span> Резюме <span class="section-sub">
                                 (итог
-                                по {{ANALYSIS_SHORT}} и ситуации)</span></span>
+                                по биохимии крови и ситуации)</span></span>
                     </div>
                     <div class="divider"></div>
-                    <div>{{RESUME_ITEMS}}</div>
+                    <div>
+    <div class="item-row">
+      <div class="item-number">1</div>
+      <div class="item-text">Выявлено умеренное повышение общего билирубина: 22.40 мкмоль/л при норме 3.4–17.1.</div>
+    </div>
+    <div class="item-row">
+      <div class="item-number">2</div>
+      <div class="item-text">Прямой билирубин на верхней границе нормы (3.40 мкмоль/л), что вместе с расчётом косвенного билирубина делает более вероятным «неконъюгированное» повышение билирубина.</div>
+    </div>
+    <div class="item-row">
+      <div class="item-number">3</div>
+      <div class="item-text">Показатели повреждения печени и холестаза (АЛТ, АСТ, ГГТ, щелочная фосфатаза) в норме — это снижает вероятность активного гепатита и выраженного застоя желчи на момент анализа.</div>
+    </div>
+    <div class="item-row">
+      <div class="item-number">4</div>
+      <div class="item-text">Воспалительный маркер С-реактивный белок нормальный, признаков системного воспаления по этому анализу нет.</div>
+    </div>
+    <div class="item-row">
+      <div class="item-number">5</div>
+      <div class="item-text">Глюкоза, креатинин, панкреатические ферменты (амилаза, липаза) и общий холестерин — в пределах референсных значений.</div>
+    </div>
+    <div class="item-row">
+      <div class="item-number">6</div>
+      <div class="item-text">При отсутствии жалоб чаще всего так проявляется функциональная/наследственная особенность обмена билирубина или временный подъём (голодание, стресс, физнагрузка), но важно подтвердить повторным контролем.</div>
+    </div></div>
                 </div>
                 <div class="page-break-spacer-bottom"></div>
             </div>
@@ -789,7 +813,70 @@
                 <div class="card">
                     <div class="section-title"><span class="number">2.</span> План действий</div>
                     <div class="divider"></div>
-                    <div>{{ACTION_ITEMS}}</div>
+                    <div>
+      <div class="group-list">
+        <div class="group-header">
+          <div class="bullet-icon" style="background:#34425d;"></div>
+          <div class="group-title" style="color:#34425d; text-transform:uppercase; letter-spacing:0.08em;">
+            В ближайшие 1–2 недели (контроль и уточнение причины)
+          </div>
+        </div>
+        
+      <div class="item-row">
+        <div class="item-number">1</div>
+        <div class="item-text">Пересдать билирубин общий и прямой (и желательно непрямой/расчётный) натощак, без алкоголя 48–72 часа и без интенсивных тренировок 24–48 часов до анализа: это помогает исключить транзиторное повышение.</div>
+      </div>
+      <div class="item-row">
+        <div class="item-number">2</div>
+        <div class="item-text">Сдать общий анализ крови с ретикулоцитами: нужен для исключения гемолиза (ускоренного распада эритроцитов), который может повышать билирубин при нормальных печёночных ферментах.</div>
+      </div>
+      <div class="item-row">
+        <div class="item-number">3</div>
+        <div class="item-text">Добавить ЛДГ и гаптоглобин (по возможности): вместе с ОАК повышают точность исключения гемолиза, особенно если билирубин сохраняется повышенным.</div>
+      </div>
+      </div>
+      <div class="group-list">
+        <div class="group-header">
+          <div class="bullet-icon" style="background:#5fbbd6;"></div>
+          <div class="group-title" style="color:#5fbbd6; text-transform:uppercase; letter-spacing:0.08em;">
+            Если повышение подтвердится (в течение 2–6 недель)
+          </div>
+        </div>
+        
+      <div class="item-row">
+        <div class="item-number blue-number">1</div>
+        <div class="item-text blue-text">Очная консультация терапевта/гастроэнтеролога с оценкой анамнеза (эпизоды желтушности, влияние голодания/стресса, семейные случаи): при сочетании «билирубин↑ + ферменты печени нормальные» часто рассматривают синдром Жильбера.</div>
+      </div>
+      <div class="item-row blue-row">
+        <div class="item-number blue-number">2</div>
+        <div class="item-text blue-text">По показаниям: УЗИ печени и желчного пузыря (если появятся симптомы или вырастет прямой билирубин/щелочная фосфатаза/ГГТ) — для исключения билиарных причин.</div>
+      </div>
+      <div class="item-row blue-row">
+        <div class="item-number blue-number">3</div>
+        <div class="item-text blue-text">⚠️ Если появится желтушность склер/кожи, потемнение мочи или светлый стул — обратиться к врачу внепланово, не дожидаясь повторного анализа.</div>
+      </div>
+      </div>
+      <div class="group-list">
+        <div class="group-header">
+          <div class="bullet-icon" style="background:#aab4c8;"></div>
+          <div class="group-title" style="color:#aab4c8; text-transform:uppercase; letter-spacing:0.08em;">
+            Профилактика и образ жизни
+          </div>
+        </div>
+        
+      <div class="item-row">
+        <div class="item-number gray-number">1</div>
+        <div class="item-text gray-text">Не допускать длительных голоданий и обезвоживания; регулярное питание часто снижает колебания билирубина при функциональных причинах.</div>
+      </div>
+      <div class="item-row">
+        <div class="item-number gray-number">2</div>
+        <div class="item-text gray-text">Ограничить алкоголь до выяснения причины (как минимум на период повторного контроля), так как он может провоцировать рост билирубина у предрасположенных людей.</div>
+      </div>
+      <div class="item-row">
+        <div class="item-number gray-number">3</div>
+        <div class="item-text gray-text">Сообщать врачу о всех принимаемых препаратах/БАД (в т.ч. анаболики, некоторые антибиотики, противосудорожные): часть средств может влиять на билирубин и печёночный обмен.</div>
+      </div>
+      </div></div>
                 </div>
                 <div class="page-break-spacer-bottom"></div>
             </div>
@@ -799,7 +886,77 @@
                 <div class="card">
                     <div class="section-title"><span class="number">3.</span> Вероятные диагнозы</div>
                     <div class="divider"></div>
-                    <div>{{DIAGNOSES}}</div>
+                    <div>
+      <div class="diagnosis-card">
+        <div class="diag-header">
+          <div>
+            <div class="diag-name">Синдром Жильбера (доброкачественная неконъюгированная гипербилирубинемия)</div>
+            <div class="diag-sub">Вероятность по совокупности показателей</div>
+          </div>
+          <div class="diag-percent">50%</div>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-fill" style="width:50%;"></div>
+        </div>
+        <div class="cause-list"><div class="cause-item"><span>→</span><span>Общий билирубин повышен (22.40), при этом АЛТ, АСТ, ГГТ, ЩФ в норме — типичный профиль без признаков цитолиза/холестаза</span></div><div class="cause-item"><span>→</span><span>Преимущественно косвенная фракция по расчёту (общий 22.40 − прямой 3.40 = 19.0 мкмоль/л)</span></div></div>
+        <div class="important-note" style="font-size:10px; line-height:160%;">⚠ Обычно не опасно, но диагноз подтверждают после исключения гемолиза и других причин.</div>
+      </div>
+      <div class="diagnosis-card">
+        <div class="diag-header">
+          <div>
+            <div class="diag-name">Транзиторное повышение билирубина (голодание, стресс, физнагрузка, недосып, алкоголь)</div>
+            <div class="diag-sub">Вероятность по совокупности показателей</div>
+          </div>
+          <div class="diag-percent">25%</div>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-fill" style="width:25%;"></div>
+        </div>
+        <div class="cause-list"><div class="cause-item"><span>→</span><span>Изолированное повышение билирубина при нормальных печёночных ферментах</span></div><div class="cause-item"><span>→</span><span>Такие колебания часто выявляются случайно и могут нормализоваться при повторном анализе</span></div></div>
+        
+      </div>
+      <div class="diagnosis-card">
+        <div class="diag-header">
+          <div>
+            <div class="diag-name">Гемолиз (ускоренный распад эритроцитов) — маловероятно, но нужно исключить</div>
+            <div class="diag-sub">Вероятность по совокупности показателей</div>
+          </div>
+          <div class="diag-percent">10%</div>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-fill" style="width:10%;"></div>
+        </div>
+        <div class="cause-list"><div class="cause-item"><span>→</span><span>Повышение билирубина может быть следствием гемолиза даже при нормальных АЛТ/АСТ</span></div><div class="cause-item"><span>→</span><span>Требует проверки ОАК, ретикулоцитов, ЛДГ, гаптоглобина</span></div></div>
+        <div class="important-note" style="font-size:10px; line-height:160%;">⚠ Если есть слабость, потемнение мочи, желтушность, бледность — не откладывать обследование.</div>
+      </div>
+      <div class="diagnosis-card">
+        <div class="diag-header">
+          <div>
+            <div class="diag-name">Заболевания печени/желчевыводящих путей (гепатит, холестаз) — маловероятно по текущему профилю</div>
+            <div class="diag-sub">Вероятность по совокупности показателей</div>
+          </div>
+          <div class="diag-percent">10%</div>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-fill" style="width:10%;"></div>
+        </div>
+        <div class="cause-list"><div class="cause-item"><span>→</span><span>Нормальные АЛТ/АСТ, ГГТ, щелочная фосфатаза не поддерживают активный процесс на момент анализа</span></div><div class="cause-item"><span>→</span><span>Прямой билирубин не повышен (на верхней границе нормы)</span></div></div>
+        <div class="important-note" style="font-size:10px; line-height:160%;">⚠ Вероятность возрастает при появлении симптомов, росте прямого билирубина, ЩФ/ГГТ.</div>
+      </div>
+      <div class="diagnosis-card">
+        <div class="diag-header">
+          <div>
+            <div class="diag-name">Норма/лабораторная вариабельность (единичный эпизод)</div>
+            <div class="diag-sub">Вероятность по совокупности показателей</div>
+          </div>
+          <div class="diag-percent">5%</div>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-fill" style="width:5%;"></div>
+        </div>
+        <div class="cause-list"><div class="cause-item"><span>→</span><span>Небольшое превышение референса возможно при биологической вариабельности</span></div><div class="cause-item"><span>→</span><span>Остальные показатели биохимии без отклонений</span></div></div>
+        <div class="important-note" style="font-size:10px; line-height:160%;">⚠ Подтверждается нормализацией при повторном анализе.</div>
+      </div></div>
                 </div>
                 <div class="page-break-spacer-bottom"></div>
             </div>
@@ -820,7 +977,7 @@
                                         stroke-width="0.5" />
                                 </svg>
                                 <div class="badge-circle" style="background-color: rgba(242, 184, 32, 0.55);">
-                                    <span style="color:#906601;">{{ABNORMAL_COUNT}}</span>
+                                    <span style="color:#906601;">1</span>
                                 </div>
                             </div>
                             <div class="badge-pill"
@@ -833,14 +990,102 @@
                                         stroke-width="0.5" />
                                 </svg>
                                 <div class="badge-circle" style="background-color: rgba(106, 207, 92, 0.55);">
-                                    <span style="color: rgba(70, 138, 60, 1);">{{NORMAL_COUNT}}</span>
+                                    <span style="color: rgba(70, 138, 60, 1);">11</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="divider"></div>
-                    <div class="mb-2">{{ABNORMAL_INDICATORS}}</div>
-                    <div>{{NORMAL_INDICATORS}}</div>
+                    <div class="mb-2">
+      <div class="abnormal-card">
+        <div class="diag-header" style="margin-bottom:6px;">
+          <div class="diag-name">Билирубин общий</div>
+          <div class="status-badge-abnormal">↑ Повышен</div>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:10px; color:#6c768a; margin-bottom:8px;">
+          <span>Результат: <strong style="color:#906601; font-size:12px;">22.40 мкмоль/л</strong></span>
+          <span>Норма: 3.4–17.1 мкмоль/л</span>
+        </div>
+        <div style="font-size:10px; color:#34425d; line-height:155%;">Общий билирубин отражает суммарное количество прямой и косвенной фракций. Умеренное изолированное повышение при нормальных АЛТ/АСТ, ГГТ и щелочной фосфатазе чаще связано с доброкачественными причинами (синдром Жильбера) или временными факторами (голодание, стресс, физнагрузка, алкоголь). Важно подтвердить повторным анализом и при необходимости исключить гемолиз.</div>
+      </div></div>
+                    <div><div class="norm-table">
+    <div class="norm-row">
+      <div class="norm-label">Глюкоза</div>
+      <div class="norm-value">5.00 ммоль/л
+        <span style="color:#6c768a; font-size:10px;">(норма 3.89–5.83)</span>
+      </div>
+      <div class="norm-status">✓ Норма</div>
+    </div>
+    <div class="norm-row">
+      <div class="norm-label">Креатинин</div>
+      <div class="norm-value">98.10 мкмоль/л
+        <span style="color:#6c768a; font-size:10px;">(норма 62–115)</span>
+      </div>
+      <div class="norm-status">✓ Норма</div>
+    </div>
+    <div class="norm-row">
+      <div class="norm-label">Билирубин прямой</div>
+      <div class="norm-value">3.40 мкмоль/л
+        <span style="color:#6c768a; font-size:10px;">(норма 0–3.4)</span>
+      </div>
+      <div class="norm-status">✓ Норма</div>
+    </div>
+    <div class="norm-row">
+      <div class="norm-label">Аланин-аминотрансфераза (АЛТ)</div>
+      <div class="norm-value">22.00 Ед/л
+        <span style="color:#6c768a; font-size:10px;">(норма 0–41)</span>
+      </div>
+      <div class="norm-status">✓ Норма</div>
+    </div>
+    <div class="norm-row">
+      <div class="norm-label">Аспартат-аминотрансфераза (АСТ)</div>
+      <div class="norm-value">23.30 Ед/л
+        <span style="color:#6c768a; font-size:10px;">(норма 0–40)</span>
+      </div>
+      <div class="norm-status">✓ Норма</div>
+    </div>
+    <div class="norm-row">
+      <div class="norm-label">Гамма-глутамилтрансфераза (ГГТ)</div>
+      <div class="norm-value">17.40 Ед/л
+        <span style="color:#6c768a; font-size:10px;">(норма 0–49)</span>
+      </div>
+      <div class="norm-status">✓ Норма</div>
+    </div>
+    <div class="norm-row">
+      <div class="norm-label">Щелочная фосфатаза</div>
+      <div class="norm-value">48.30 Ед/л
+        <span style="color:#6c768a; font-size:10px;">(норма 30–120)</span>
+      </div>
+      <div class="norm-status">✓ Норма</div>
+    </div>
+    <div class="norm-row">
+      <div class="norm-label">Альфа-амилаза</div>
+      <div class="norm-value">51.80 Ед/л
+        <span style="color:#6c768a; font-size:10px;">(норма 28–100)</span>
+      </div>
+      <div class="norm-status">✓ Норма</div>
+    </div>
+    <div class="norm-row">
+      <div class="norm-label">Липаза</div>
+      <div class="norm-value">20.70 Ед/л
+        <span style="color:#6c768a; font-size:10px;">(норма 7–59)</span>
+      </div>
+      <div class="norm-status">✓ Норма</div>
+    </div>
+    <div class="norm-row">
+      <div class="norm-label">Холестерин общий</div>
+      <div class="norm-value">4.85 ммоль/л
+        <span style="color:#6c768a; font-size:10px;">(норма 2.9–5.2)</span>
+      </div>
+      <div class="norm-status">✓ Норма</div>
+    </div>
+    <div class="norm-row">
+      <div class="norm-label">С-реактивный белок (СРБ)</div>
+      <div class="norm-value">1.3 мг/л
+        <span style="color:#6c768a; font-size:10px;">(норма 0–5)</span>
+      </div>
+      <div class="norm-status">✓ Норма</div>
+    </div></div></div>
                 </div>
                 <div class="page-break-spacer-bottom"></div>
             </div>
@@ -854,11 +1099,11 @@
                     <div class="two-columns mb-2">
                         <div class="col-dark">
                             <div class="col-title">Опасные признаки</div>
-                            <span style="font-size: 10px; font-weight:300;">{{WATCH_DANGER}}</span>
+                            <span style="font-size: 10px; font-weight:300;"><div class="bullet-white"><span style="color: #5FBBD6;">•</span><span>Пожелтение склер или кожи, быстро нарастающее</span></div><div class="bullet-white"><span style="color: #5FBBD6;">•</span><span>Тёмная «пивная» моча и/или очень светлый (обесцвеченный) стул</span></div><div class="bullet-white"><span style="color: #5FBBD6;">•</span><span>Сильная боль в правом подреберье, особенно с тошнотой/рвотой</span></div><div class="bullet-white"><span style="color: #5FBBD6;">•</span><span>Температура, выраженная слабость, многократная рвота</span></div></span>
                         </div>
                         <div class="col-light">
                             <div class="col-title">Менее опасные признаки</div>
-                            <span style="font-size: 10px; font-weight:300;">{{WATCH_SAFE}}</span>
+                            <span style="font-size: 10px; font-weight:300;"><div class="bullet-dark"><span>•</span><span>Лёгкая утомляемость, снижение аппетита</span></div><div class="bullet-dark"><span>•</span><span>Непостоянная тошнота после жирной пищи</span></div><div class="bullet-dark"><span>•</span><span>Незначительный кожный зуд без высыпаний</span></div><div class="bullet-dark"><span>•</span><span>Ощущение тяжести в правом подреберье без боли</span></div></span>
                         </div>
                     </div>
                     <div class="col-watch-note">
@@ -869,7 +1114,7 @@
                                 style="stroke:#34425D;stroke:color(display-p3 0.2039 0.2588 0.3647);stroke-opacity:1;"
                                 stroke-width="1.55556" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                        {{WATCH_NOTE}}
+                        При появлении опасных признаков из списка выше — обратиться за неотложной медицинской помощью или срочно к врачу в тот же день.
                     </div>
                 </div>
                 <div class="page-break-spacer-bottom"></div>
@@ -880,12 +1125,12 @@
                 <div class="card-light">
                     <div class="section-title"><span class="number">6.</span> Важное примечание</div>
                     <div class="divider"></div>
-                    <div class="important-note-text">{{IMPORTANT_NOTE}}</div>
+                    <div class="important-note-text">Интерпретация выполнена по данным одного биохимического анализа и не заменяет очный осмотр и диагноз врача. Референсные интервалы зависят от лаборатории, методики и подготовки к сдаче, поэтому важно сравнивать именно с указанными в бланке нормами. Даже умеренные отклонения могут быть временными и требуют подтверждения повторным измерением. При ухудшении самочувствия или появлении желтухи/тёмной мочи/светлого стула нужно обратиться к врачу внепланово.</div>
                     <div class="important-tip-row">
                         <svg width="2" height="14" viewBox="0 0 2 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="0.275" y="0" width="1.45" height="14" rx="0.725" fill="#5FBBD6" />
                         </svg>
-                        <span class="important-tip-text">{{IMPORTANT_TIP}}</span>
+                        <span class="important-tip-text">Сохраните этот бланк и покажите врачу вместе с повторным анализом билирубина (общий/прямой) — динамика решает больше, чем единичное значение.</span>
                     </div>
                 </div>
                 <div class="page-break-spacer-bottom"></div>
@@ -900,7 +1145,7 @@
                         <div class="badge-pill-tech">Для специалистов</div>
                     </div>
                     <div class="divider"></div>
-                    <div>{{TECHNICAL_NOTES}}</div>
+                    <div><div class="bullet-dark" style="margin-top:6px;"><span>•</span><span>Расчётный билирубин непрямой (косвенный) = общий 22.40 − прямой 3.40 = 19.0 мкмоль/л; преобладание косвенной фракции чаще соответствует синдрому Жильбера/голоданию/гемолизу, а не холестазу.</span></div><div class="bullet-dark" style="margin-top:6px;"><span>•</span><span>Профиль «билирубин↑ при нормальных АЛТ/АСТ, ГГТ и ЩФ» снижает вероятность активного поражения печени и механической обструкции желчных путей на момент сдачи, но не исключает их полностью без клиники и динамики.</span></div></div>
                 </div>
             </div>
 
