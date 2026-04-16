@@ -236,7 +236,6 @@
             justify-content: center;
             display: flex;
             flex-direction: column;
-            /* background: linear-gradient(135deg, #5fbbd6 0%, #3f9ab5 100%); */
             border-radius: 25px;
             padding: 25px;
             color: white;
@@ -326,20 +325,23 @@
         .blue-number {
             background-color: #5FBBD6;
         }
+
         .blue-text {
             background-color: rgba(95, 187, 214, 0.05) !important;
             color: rgba(112, 122, 142, 1) !important;
         }
+
         .gray-number {
             background-color: #707A8E;
         }
+
         .gray-text {
             background-color: rgba(112, 122, 142, 0.05) !important;
             color: rgba(112, 122, 142, 1) !important;
         }
 
         .item-text {
-             background-color: rgba(52, 66, 93, 0.05);
+            background-color: rgba(52, 66, 93, 0.05);
             border-radius: 10px;
             padding: 10px;
             font-size: 10px;
@@ -386,8 +388,8 @@
         .diag-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 8px;
+            align-items: center;
+            margin-bottom: 10px;
         }
 
         .diag-name {
@@ -404,27 +406,79 @@
         }
 
         .diag-percent {
-            font-size: 30px;
+            font-size: 35px;
             font-weight: 400;
             color: #5fbbd6;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: 10px;
+        }
+
+        .diag-percent::before {
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 1.5px dashed #5fbbd6;
+            border-radius: 50%;
+            background-color: transparent;
+            box-sizing: border-box;
+        }
+
+        .diag-top-label {
+            font-size: 10px;
+            color: #5FBBD6;
+            font-weight: 500;
+            letter-spacing: -0.2px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 12px;
+            margin-bottom: 10px;
+        }
+
+        .diag-top-label::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background-color: #5FBBD6;
+            border-radius: 50%;
+            flex-shrink: 0;
         }
 
         .progress-bar-bg {
             background: rgba(112, 122, 142, 0.25);
             border-radius: 25px;
-            height: 6px;
+            height: 5px;
             width: 100%;
         }
 
         .progress-fill {
             background: #5fbbd6;
             width: 35%;
-            height: 6px;
+            height: 5px;
             border-radius: 25px;
         }
 
         .cause-list {
-            margin: 10px 0;
+            margin: 15px 0;
+            font-weight: 300;
+            font-size: 10px;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .cause-list::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 1.45px;
+            background-color: #5FBBD6;
+            border-radius: 2px;
         }
 
         .cause-item {
@@ -435,15 +489,162 @@
             margin-bottom: 6px;
         }
 
+        .cause-item:last-child {
+            margin-bottom: 0;
+        }
+
         .important-note {
-            background: #34425d;
+            background: linear-gradient(162.14deg, #30435f 12.19%, #00ceff 181.02%);
             border-radius: 10px;
             padding: 12px;
             color: white;
             margin-top: 12px;
+            font-size: 10px;
+            font-weight: 400;
         }
 
         /* показатели вне нормы */
+        /* Карточка показателя вне нормы */
+        .abnormal-card {
+            background: #F9FCFF;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        /* Заголовок карточки (название + бейдж) */
+        .abnormal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .abnormal-name {
+            font-weight: 500;
+            font-size: 12px;
+            color: #34425D;
+            line-height: 135%;
+        }
+
+        /* Бейдж статуса */
+        .abnormal-badge {
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 50px;
+            background: rgba(242, 184, 32, 0.05);
+            border: 0.5px solid rgba(144, 102, 1, 0.25);
+            color: #906601;
+        }
+
+        /* Повышен (желтый) */
+        .abnormal-badge.up {
+            background: rgba(242, 184, 32, 0.05);
+            border-color: rgba(144, 102, 1, 0.25);
+            color: #906601;
+        }
+
+        /* Понижен (синий/голубой) */
+        .abnormal-badge.down {
+            background: rgba(95, 187, 214, 0.05);
+            border-color: rgba(95, 187, 214, 0.25);
+            color: #5FBBD6;
+        }
+
+        /* Блок со значениями */
+        /* Блок со значениями */
+        .abnormal-values {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 10px 0;
+            margin-bottom: 12px;
+        }
+
+        /* Строка результата */
+        .abnormal-values .abn-result {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 12px;
+            font-weight: 400;
+            color: #34425D;
+            padding-bottom: 15px;
+            border-bottom: 0.5px solid rgba(170, 180, 200, 0.4);
+
+        }
+
+        .abnormal-values .abn-result::before {
+            content: "Результат:";
+            font-weight: 400;
+            color: #6C768A;
+            font-size: 10px;
+        }
+
+        /* Строка нормы */
+        .abnormal-values .abn-norm {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 12px;
+            font-weight: 400;
+            color: #34425D;
+        }
+
+        .abnormal-values .abn-norm::before {
+            content: "Норма:";
+            font-weight: 400;
+            color: #6C768A;
+            font-size: 10px;
+        }
+
+        .abn-result {
+            font-size: 14px;
+            font-weight: 500;
+            color: #34425D;
+        }
+
+        .abn-norm {
+            font-size: 10px;
+            color: #707A8E;
+        }
+
+        /* Блок объяснения */
+        .abnormal-explanation {
+            position: relative;
+            padding-left: 15px;
+            margin-top: 4px;
+        }
+
+        .abnormal-explanation::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 1.45px;
+            background-color: #5FBBD6;
+            border-radius: 2px;
+        }
+
+        .explanation-item {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 8px;
+            font-size: 10px;
+            line-height: 135%;
+            color: #34425D;
+        }
+
+        .exp-num {
+            font-weight: 300;
+        }
+
+        /* Для последнего элемента отступ снизу не нужен */
+        .explanation-item:last-child {
+            margin-bottom: 0;
+        }
+
         .abnormal-card {
             background: #f9fcff;
             border-radius: 15px;
@@ -489,7 +690,8 @@
             color: #468a3c;
             background: rgba(106, 207, 92, 0.05);
             border-radius: 50px;
-            padding: 2px 8px;
+            border: 0.5px solid rgba(70, 138, 60, 0.25);
+            padding: 2px 6px;
         }
 
         /* две колонки */
@@ -505,6 +707,7 @@
             border-radius: 15px;
             padding: 15px;
             flex: 1;
+            position: relative;
         }
 
         .col-light {
@@ -512,6 +715,45 @@
             border-radius: 15px;
             padding: 15px;
             flex: 1;
+            position: relative;
+        }
+
+        .col-dark,
+        .col-light {
+            position: relative;
+        }
+
+        /* Вертикальная черта у col-dark (голубая) */
+        .col-dark::before {
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 40px;
+            bottom: 15px;
+            width: 2px;
+            background: #5FBBD6;
+            border-radius: 1px;
+        }
+
+        /* Вертикальная черта у col-light (тёмная) */
+        .col-light::before {
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 40px;
+            bottom: 15px;
+            width: 2px;
+            background: #34425D;
+            border-radius: 1px;
+        }
+
+        /* Оставляем padding для span */
+        .col-dark>span,
+        .col-light>span {
+            display: flex;
+    flex-direction: column;
+    gap: 5px;
+            padding-left: 12px;
         }
 
         .col-title {
@@ -571,24 +813,60 @@
             height: 19px;
         }
 
-        .bullet-white {
-            color: white;
-            font-size: 10px;
-            margin-bottom: 8px;
-            display: flex;
-            gap: 8px;
+.important-tip-row svg {
+    width: 3px;
+    height: auto;
+    transform: scale(1.5);
+}
+
+        .bullet-white span:first-child {
+            font-size: 14px;
+            line-height: 1;
+            display: inline-block;
+            width: auto;
+            height: auto;
+            background: transparent;
+            color: rgba(95, 187, 214, 1);
         }
 
-        .bullet-dark {
-            color: #34425d;
-            font-size: 10px;
-            margin-bottom: 8px;
+        .bullet-white {
             display: flex;
-            gap: 8px;
+            gap: 10px;
+            align-items: center;
+        }
+        .bullet-dark {
+            display: flex;
+            font-size: 10px;
+            gap: 10px;
+            align-items: center;
+            color: rgba(52, 66, 93, 1);
+        }
+
+        .bullet-dark span:first-child {
+            font-size: 14px;
+            line-height: 1;
+            display: inline-block;
+            width: auto;
+            height: auto;
+            background: transparent;
+        }
+
+        .card-light .bullet-dark span:first-child{
+            color:#5FBBD6
+        }
+        
+        .card-light .bullet-dark:first-child{
+            padding-bottom: 15px;
+            border-bottom: 0.5px solid rgba(170, 180, 200, 0.4);
+        }
+
+        .card-light .bullet-dark:nth-child(2){
+            margin-top: 15px !important;
         }
 
         /* футер */
         .footer {
+
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -657,34 +935,12 @@
                 height: 2.5px;
                 margin: 0;
                 padding: 0;
-                break-inside: avoid;
-                page-break-inside: avoid;
             }
 
             .page-break-spacer-bottom {
                 height: 2.5px;
                 margin: 0;
                 padding: 0;
-                break-inside: avoid;
-                page-break-inside: avoid;
-            }
-
-            .card,
-            .card-light,
-            .banner,
-            .col-dark,
-            .col-light,
-            .header-card {
-                break-inside: avoid;
-                page-break-inside: avoid;
-                break-before: auto;
-                break-after: auto;
-            }
-
-            /* Запрещаем разрыв внутри обертки карточки */
-            .card-wrapper {
-                break-inside: avoid;
-                page-break-inside: avoid;
             }
         }
 
